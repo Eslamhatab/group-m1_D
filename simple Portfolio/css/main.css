@@ -1,0 +1,123 @@
+:root{
+    --primary-color:#2C3E50;
+    --secondary-color:#1ABC9C;
+}
+
+/* Rest */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+ul , li{
+    list-style: none;
+}
+a{
+    color: azure;
+    text-decoration: none;
+}
+.navbar{
+    /* position:static; */
+    background-color: var(--primary-color);
+}
+.navbar .navbar-container{
+    height: 80px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.navbar .navbar-container .navbar-items ul li{
+    display: inline-block;
+    font-size: 1.8rem;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+.navbar .navbar-container .navbar-items a{
+    transition: all 0.5s ease-in;
+}
+.navbar .navbar-container .navbar-items a:hover{
+    background-color: blue;
+}
+.navbar .navbar-container .navbar-brand a{
+    font-size: 2rem;
+    transition: color 2s ease-in-out;
+}
+.navbar .navbar-container .navbar-brand a:hover{
+    color: var(--secondary-color);
+    background-color: rgba(126, 252, 0, 0.537);
+    box-shadow: 0px 10px 20px 0px rgb(216, 93, 5);
+    padding: 3px;
+}
+/* End Navbar Style */
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+.showcase{
+    color: rgb(213, 225, 218);
+    text-align: center;
+    padding-top:20px ;
+    height: 35rem;
+    /* background-image: linear-gradient(to left, #0a0702, #ff6600); */
+    background-image: url('/assets/images/ShowCase.jpg') ;
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+.showcase h2 {
+    font-size: 3rem;
+    background-image: linear-gradient(to left, #0a0702, #ff6600);
+}
+ /* hr{
+    width: 10%;
+    margin: 16px auto;
+    border: 2px solid var(--secondary-color);
+} */
+.showcase hr , 
+.about hr , 
+.skills hr,
+.accoun hr{
+    width: 10%;
+    margin: 16px auto;
+    border: 2px solid var(--secondary-color);
+}
+.showcase p
+{
+    margin-bottom: 3px;
+    font-size: 2rem;
+    border: 2px solid;
+    border-radius: 20px;
+    border-color: #ff6600;
+    background-image: linear-gradient(to left, #0a0702, #ff6600);
+}
+
+.showcase button , 
+.about button {
+    padding: 14px;
+    border: none;
+    margin-top: 15px;
+    border-radius: 20px;
+    box-shadow: 0px 8px 10px 0px rebeccapurple;
+    transform: rotate(2deg);
+    transition: all 1.6s ease-in;
+    background-color: #ff6600;
+}
+.showcase button:hover ,
+.about button:hover{
+    background-color: #1ABC9C;
+}
+
+.about {
+    padding: 40px 0;
+    text-align: center;
+    margin-top: 30px;
+}
+/* End About Section */
+.skills{
+    text-align: center;
+}
+.skills .box-container{
+    display: flex;
+    justify-content: space-around;
+    /* flex-wrap: ; */
+}

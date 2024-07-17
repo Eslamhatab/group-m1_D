@@ -1,0 +1,48 @@
+/* Rest All Elements  */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Style H1 */
+h1{
+    text-align:center;
+    border: 2px solid;
+    /* margin: 0 auto ; */
+    margin-top: 15px; 
+     /* 1 rem => 16px   */
+    margin-left: 30rem; 
+    /* margin-bottom: 15px; */
+    padding-top: 20px; 
+    padding-bottom: 20px ;
+    width: 50%; 
+    background-color: bisque;
+    /* color: #f9730cb6; */
+    /* color: rgb(0, 0, 0); */
+    color: rgb(255, 0, 0)
+}
+.margin{
+    /* display: flex; */
+    /* display: grid; */
+    
+    padding-top: 15px;
+    margin-top: 15px;
+    text-align: center;
+    border: 3px solid;
+    border-radius: 15px;
+    border-style:double;
+    width: 50%;
+    margin-left: 30rem;
+    margin-right: 10rem;
+}
+#pond{
+    background-color: rgb(0, 0, 0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: aliceblue;
+}
+.yellow{
+    align-self: flex-end;
+    
+}
