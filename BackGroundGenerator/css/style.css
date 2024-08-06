@@ -1,0 +1,13 @@
+    /* Body */
+    body{
+        text-align: center;
+        background: linear-gradient(to right , red , green);
+    }
+
+    h1{
+        color: rgba(0 , 0 , 0 , .6);
+        letter-spacing: 1.8rem ;
+        font-size: 4rem;
+        width: 60%;
+        margin: 20px auto;
+    }
