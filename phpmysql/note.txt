@@ -1,0 +1,10 @@
+Sql => Stractured Query Language 
+Table students => id => primey key 
+               => name => string | 255 |required 
+               =>  address => varcharter |255|required 
+               =>  grade   => float|required    
+               => phone    => string | UQ |digits:11
+
+
+
+

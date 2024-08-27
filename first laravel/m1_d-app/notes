@@ -1,0 +1,10 @@
+    1- Run =>  composer Update
+    2- run  => cp .env.example .env
+    3- run  =>  php artisan key:generate
+    4- Run DataBASE  => php artisan migrate:fresh
+    5-Create Controller => run => php artisan make:contrroler NameConnteroller 
+    5- Run => php artisan serve
+    M v c
+    M=> Model
+    V=> View
+    C=> Controller
