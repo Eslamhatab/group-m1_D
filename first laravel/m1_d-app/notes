@@ -2,9 +2,32 @@
     2- run  => cp .env.example .env
     3- run  =>  php artisan key:generate
     4- Run DataBASE  => php artisan migrate:fresh
-    5-Create Controller => run => php artisan make:contrroler NameConnteroller 
+    5-Create Controller => run => php artisan make:contrroler NameConnteroller
     5- Run => php artisan serve
     M v c
     M=> Model
     V=> View
     C=> Controller
+            // Install Laravel Ui  Bootstrap
+            1- composer require laravel/ui
+            2-php artisan ui:auth
+            3-php artisan ui Bootstrap
+            4- npm  Install && npm run dev
+            5- php artisan migrate:fresh --seed
+
+
+
+
+
+==
+==============================Dashbard==============
+Users => Index  => Create =>
+ => Admin => Moderator => customer
+
+2-Products => index => Create
+
+3- categories => index => Create
+
+4- Sub Categories => index  => Create
+
+

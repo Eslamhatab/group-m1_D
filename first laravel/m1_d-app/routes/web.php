@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
-use App\Http\Controllers\MainController;
+    // Website Controller
+use App\Http\Controllers\Website\{MainController, ProductsController};
+// DashboardController
+use App\Http\Controllers\dashboard\DashboardMainController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,15 +17,21 @@ use App\Http\Controllers\MainController;
 |
 */
 
+Auth::routes();
+Route::group(
+    [
+        'prefix' => LaravelLocalization::setLocale(),
+        'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
+    ], function(){
+        Route::get('/' , [MainController::class , 'home'])->name('home');
+Route::get('/about' ,[MainController::class , 'about'])->name('about');
+Route::get('/contact' , [MainController::class , 'contact'])->name('contact');
+Route::get('/shop' , [ProductsController::class , 'shop'])->name('shop');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home-auth');
+
+//Dashboard Routing
+Route::get('/dashboard' , [DashboardMainController::class , 'index'])->name('home-Dashboard');
+
+    });
 
 
-
-
-    Route::get('/' , [MainController::class , 'home'])->name('home');
-
-
-
-
-Route::get('parts/' , [MainController::class , 'index'])->name('home');
-//About Page
-Route::get('/parts/about' , [MainController::class , 'about'])->name('about');

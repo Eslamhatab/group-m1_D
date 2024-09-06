@@ -4,27 +4,45 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="icon" type="image/x-icon" href="{{ asset('assets/assets/favicon.ico') }}" />
-        <!-- Font Awesome icons (free version)-->
-        <script src="https://use.fontawesome.com/releases/v6.3.0/js/all.js" crossorigin="anonymous"></script>
-        <!-- Google fonts-->
-        <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css" />
-        <link href="https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic" rel="stylesheet" type="text/css" />
-        <!-- Core theme CSS (includes Bootstrap)-->
-        <link href="{{asset('assets/css/styles.css')}}" rel="stylesheet" />
-    <title>Document</title>
+    {{-- Cdn & Link Styles  --}}
+{{-- FontAwesome  --}}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mukta:300,400,700">
+    <link rel="stylesheet" href="{{ asset('assets/website/fonts/icomoon/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/website/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/website/css/magnific-popup.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/website/css/jquery-ui.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/website/css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/website/css/owl.theme.default.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/website/css/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('assets/website/css/style.css')}}">
+    <title>@yield('title')</title>
 </head>
-<body id="page-top">
-    {{-- Navbar --}}
-            @include('website.includes.navbar')
+<body>
 
-        {{-- Ssection   --}}
+        {{-- Include Navbar --}}
+        @include('website.includes.navbar')
+
+
 
         @section('main-content')
         @show
 
 
-        {{-- Fotter  --}}
+
+
+        {{-- Includes Footer --}}
         @include('website.includes.footer')
+
+        {{-- Scripts Thems Shoppers --}}
+        <script src="{{asset('assets/website/js/jquery-3.3.1.min.js')}}"></script>
+        <script src="{{asset('assets/website/js/jquery-ui.js')}}"></script>
+        <script src="{{asset('assets/website/js/popper.min.js')}}"></script>
+        <script src="{{asset('assets/website/js/bootstrap.min.js')}}"></script>
+        <script src="{{asset('assets/website/js/owl.carousel.min.js')}}"></script>
+        <script src="{{asset('assets/website/js/jquery.magnific-popup.min.js')}}"></script>
+        <script src="{{asset('assets/website/js/aos.js')}}"></script>
+        <script src="{{asset('assets/website/js/main.js')}}"></script>
+
 </body>
 </html>
