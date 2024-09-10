@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\dashboard\CategoryController;
 use Illuminate\Support\Facades\Route;
     // Website Controller
 use App\Http\Controllers\Website\{MainController, ProductsController};
@@ -30,8 +31,14 @@ Route::get('/shop' , [ProductsController::class , 'shop'])->name('shop');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home-auth');
 
 //Dashboard Routing
-Route::get('/dashboard' , [DashboardMainController::class , 'index'])->name('home-Dashboard');
-
+Route::group([
+    'middleware'  => ['auth' , 'dashboard']
+], function(){
+        Route::prefix('dashboard')->group(function(){
+            Route::get('/' , [DashboardMainController::class , 'index'])->name('dashboard');
+            Route::resource('/categories' , CategoryController::class);
+        });
+    });
     });
 
 

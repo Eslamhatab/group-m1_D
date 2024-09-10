@@ -14,19 +14,23 @@
             3-php artisan ui Bootstrap
             4- npm  Install && npm run dev
             5- php artisan migrate:fresh --seed
-
-
-
-
+            <!--Create   MiddleWare -->
+            run => php artisan make:middleware name_dir/NameFile
+            <!-- Migrations -->
+            run => php artisan make:migration create_tableNames_table
+            <!-- Model -->
+            Run => php artisan make:model ModelName
+            <!-- Seeder -->
+            Run => php artisan make:seeder SeederName
 
 ==
 ==============================Dashbard==============
-Users => Index  => Create =>
- => Admin => Moderator => customer
+1-Users => Index  => Create => => Admin => Moderator => customer
 
 2-Products => index => Create
 
-3- categories => index => Create
+3- categories => index => create
+id  => title => description => (fk) create_user_id => (fk) update_user_id
 
 4- Sub Categories => index  => Create
 

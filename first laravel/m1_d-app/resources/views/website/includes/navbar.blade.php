@@ -48,7 +48,7 @@
                         <i class="fa-solid fa-user"></i> Profile Management
                     </button>
                     @if (auth()->user()->user_type == 'admin' || auth()->user()->user_type == 'modorater')
-                    <button class="dropdown-item" type="button" onclick="window.location.href= '{{ route('home-Dashboard') }}'">
+                    <button class="dropdown-item" type="button" onclick="window.location.href= '{{ route('dashboard') }}'">
                         <i class="fa-solid fa-gauge"></i>Dashboard
                     </button>
                     @endif
@@ -75,7 +75,7 @@
         <div class="container">
         <ul class="site-menu js-clone-nav d-none d-md-block">
             <li class="has-children">
-            <a href="{{ route('home') }}">Home</a>
+            <a href="{{ route('home') }}">{{ __('website/navbar.home') }}</a>
             <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
@@ -91,17 +91,17 @@
             </ul>
             </li>
             <li class="has-children active">
-            <a href="{{ route('about') }}">About</a>
+            <a href="{{ route('about') }}">{{ __('website/navbar.about') }}</a>
             <ul class="dropdown">
                 <li><a href="#">Menu One</a></li>
                 <li><a href="#">Menu Two</a></li>
                 <li><a href="#">Menu Three</a></li>
             </ul>
             </li>
-            <li><a href="{{ route('shop') }}">Shop</a></li>
-            <li><a href="#">Catalogue</a></li>
-            <li><a href="#">New Arrivals</a></li>
-            <li><a href="{{ route('contact') }}">Contact</a></li>
+            <li><a href="{{ route('shop') }}">{{ __('website/navbar.shop') }}</a></li>
+            <li><a href="#">{{ __('website/navbar.catalogue') }}</a></li>
+            <li><a href="#">{{ __('website/navbar.new_arrivales') }}</a></li>
+            <li><a href="{{ route('contact') }}">{{ __('website/navbar.contact') }}</a></li>
         </ul>
         </div>
     </nav>

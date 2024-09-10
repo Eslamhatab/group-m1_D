@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="{{ app()->getLocale() }}" dir="{{ app()->isLocale('ar') ? 'rtl' : 'ltr' }}">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="{{asset('assets/website/css/style.css')}}">
     <title>@yield('title')</title>
 </head>
-<body>
+<body @if (LaravelLocalization::getCurrentLocale() == "ar") class="rtl" @else class="ltr" @endif>
 
         {{-- Include Navbar --}}
         @include('website.includes.navbar')
