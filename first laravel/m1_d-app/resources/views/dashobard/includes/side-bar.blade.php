@@ -97,12 +97,12 @@
                     </a>
                     <ul id="category" class="nav-content collapse " data-bs-parent="#sidebar-nav">
                         <li>
-                            <a href="components-alerts.html">
+                            <a href="{{ route('categories.index') }}">
                                 <i class="fa-solid fa-user-tie fs-5"></i><span>Index</span>
                             </a>
                         </li>
                         <li>
-                            <a href="components-accordion.html">
+                            <a href="{{ route('categories.create') }}">
                                 <i class="fa-brands fa-monero fs-5"></i><span>Create</span>
                             </a>
                         </li>

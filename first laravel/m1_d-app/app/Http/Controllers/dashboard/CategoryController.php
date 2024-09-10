@@ -13,7 +13,8 @@ class CategoryController extends Controller
     public function index()
     {
         //
-        return view('dashobard.pages.categories.index');
+        $categories = category::orderBy('id' , 'desc')->simplePaginate(4);
+        return view('dashobard.pages.categories.index ' , compact('categories'));
     }
 
     /**
@@ -50,25 +51,60 @@ class CategoryController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show($id)
     {
-        //
+        $category = category::find($id);
+        if($category == null){
+            return view('dashobard.pages.categories.404.category-404');
+        }
+        return view('dashobard.pages.categories.show' , compact('category'));
+
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $id)
+    public function edit( int $id)
     {
-        //
+        $category = category::find($id);
+        if($category == null){
+            return view('dashobard.pages.categories.404.category-404');
+        }
+        else{
+            if(auth()->user()->user_type  == "admin"){
+                return view('dashobard.pages.categories.edit' , compact('category'));
+            }
+            else{
+                return view('dashobard.pages.categories.404.category-404');
+            }
+        }
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, int $id)
     {
-        //
+            $request->validate([
+                'title' => 'required|string|max:255',
+                'description' => 'nullable|string|max:1020',
+                'create_user_id' => 'nullable|exists:users,id',
+                'update_user_id' => 'nullable|exists:users,id',
+            ]);
+            //update Category
+            $category_old = category::find($id);
+            $category     = category::find($id);
+                $category->title = $request->title;
+            if($category->title == $request->title){
+                $category->title = $category->title;
+            }
+            else{
+                $category->title = $request->title;
+            }
+            $category->description = $request->description;
+            $category->update_user_id = auth()->user()->id;
+            $category->save();
+            return redirect()->route('categories.index');
     }
 
     /**

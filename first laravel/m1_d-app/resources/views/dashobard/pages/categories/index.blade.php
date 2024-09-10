@@ -17,19 +17,46 @@
            <table class="table w-50 m-auto datatable">
             <thead>
               <tr>
-                <th>
-                  <b>N</b>ame
-                </th>
-                <th>Ext.</th>
-                <th>City</th>
-                <th data-type="date" data-format="YYYY/DD/MM">Start Date</th>
-                <th>Completion</th>
+                <th>#</th>
+                <th>Title</th>
+                <th>Description</th>
+                <th>Created By</th>
+                <th>Updated By</th>
+                <th>Created at</th>
+                <th>Updated at</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
+                    @forelse ($categories as $category )
+                    <tr>
+                        <td>{{ $loop->iteration }}</td>
+                        <td>{{ $category->title }}</td>
+                        <td>{{Str::words($category->description , '5', '....') ?? 'N/A' }}</td>
+                        <td>{{ $category->create_user->name  }}</td>
+                        <td>{{ $category->update_user_name ?? 'N/A' }}</td>
+                        <td>{{ $category->created_at }}</td>
+                        <td>{{ $category->updated_at ?? 'N/A'}}</td>
+                        <td>
+                            <form method="post" class="d-flex justify-content-between aligin-items-center">
+                                @csrf
+                                @method('DELETE')
+                                <a class="btn btn-warning font-weight-bold btn-sm fs-6" href="{{ route('categories.show' , $category->id) }}">Show</a>
+                                @if (auth()->user()->user_type  == 'admin')
+                                <a class="btn btn-primary btn-sm font-weight-bold fs-6" href="{{ route('categories.edit' , $category->id) }}">Edit</a>
+                                <button type="submit" class="btn btn-danger btn-sm font-weight-bold fs-6">Delete</button>
+                                @endif
+                            </form>
+                        </td>
+                    </tr>
+                    @empty
 
+                    @endforelse
             </tbody>
           </table>
+          <div class="my-4 d-flex justify-content-center">
+            {{ $categories->links() }}
+          </div>
           <!-- End Table with stripped rows -->
 
 
