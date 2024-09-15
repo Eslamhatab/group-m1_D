@@ -4,7 +4,7 @@ namespace App\Http\Controllers\dashboard;
 use App\Models\category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-
+// use Illuminate\Support\Facades\Redirect;
 class CategoryController extends Controller
 {
     /**
@@ -31,7 +31,7 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+    
         $request->validate([
             'title'          => 'required|string|unique:categories,title|max:255',
             'description'    => 'nullable|string|max:1020',
@@ -45,7 +45,7 @@ class CategoryController extends Controller
         $category->create_user_id = auth()->user()->id;
         $category->update_user_id    = null;
         $category->save();
-        return redirect()->route('categories.index')->with('Created_Category_successfully ', "The Category ($category->title) has been Created Successfully");
+        return redirect()->route('categories.index')->with('Created_Category_Successfully',"The Category ($category->title) has been Created Successfully");
     }
 
     /**
@@ -110,8 +110,32 @@ class CategoryController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
-        //
+        $category = category::find($id);
+        $category->delete();
+
+        return redirect()->route('categories.delete');
+    }
+
+    //delete Function
+    public function delete(){
+        $categories = category::orderBy('id' , 'desc')->onlyTrashed()->simplePaginate(4);
+        $categories_count = $categories->count();
+        return view('dashobard.pages.categories.delete' , compact('categories' , 'categories_count'));
+    }
+
+    public function restore($id){
+        $category = category::withTrashed()->find($id);
+        $category->restore();
+        $category = category::findOrFail($id);
+        $category->update_user_id = auth()->user()->id;
+        $category->save();
+        return redirect()->route('categories.index');
+}
+    public function forceDelete($id){
+        $category = category::where('id' , $id);
+        $category->forceDelete();
+        return redirect()->route('categories.index');
     }
 }

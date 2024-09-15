@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-
+            @include('dashobard.pages.categories.index-messages.messages')
            <!-- Table with stripped rows -->
            <table class="table w-50 m-auto datatable">
             <thead>
@@ -38,7 +38,7 @@
                         <td>{{ $category->created_at }}</td>
                         <td>{{ $category->updated_at ?? 'N/A'}}</td>
                         <td>
-                            <form method="post" class="d-flex justify-content-between aligin-items-center">
+                            <form action="{{ route('categories.destroy' , $category->id) }}" method="post" class="d-flex justify-content-between aligin-items-center">
                                 @csrf
                                 @method('DELETE')
                                 <a class="btn btn-warning font-weight-bold btn-sm fs-6" href="{{ route('categories.show' , $category->id) }}">Show</a>

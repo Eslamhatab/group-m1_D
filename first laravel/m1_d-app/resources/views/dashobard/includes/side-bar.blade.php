@@ -106,6 +106,11 @@
                                 <i class="fa-brands fa-monero fs-5"></i><span>Create</span>
                             </a>
                         </li>
+                        <li>
+                            <a href="{{ route('categories.delete') }}">
+                                <i class="fa-solid fa-trash-alt p-1 fs-4" ></i><span>Trash</span>
+                            </a>
+                        </li>
                     </ul>
                 </li>
 

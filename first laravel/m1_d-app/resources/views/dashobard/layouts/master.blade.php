@@ -32,10 +32,10 @@
         {{-- <aside id="sidebar" class="sidebar"> --}}
         @include('dashobard.includes.side-bar')
         {{-- </aside> --}}
-
+            <main id="main" class="main">
         @section('main-content')
         @show
-
+            </main>
         @include('dashobard.includes.footer')
 
                 <!-- Vendor JS Files -->
